@@ -2,7 +2,7 @@ package Point;
 
 public class Point2d extends AbstractPoint {
     private final Integer X = 0;
-    private final Integer Y = 1;
+    private final Integer Y = 0;
 
     /** TODO
      * 2D Point Constructor from coordinates
@@ -38,8 +38,10 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d translate(Double[] translateVector) {
-
-        return null;
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] += translateVector[i];
+        }
+        return this;
     }
 
     /** TODO
@@ -48,7 +50,9 @@ public class Point2d extends AbstractPoint {
      * @return Translated point
      */
     public Point2d translate(Point2d translateVector) {
-        return null;
+        vector[0] += translateVector.X;
+        vector[1] += translateVector.Y();
+        return this;
     }
 
     /** TODO
@@ -77,7 +81,8 @@ public class Point2d extends AbstractPoint {
      */
     @Override
     public Point2d divide(Double divider) {
-        return null;
+
+        return this;
     }
 
     /** TODO
