@@ -44,9 +44,7 @@ public final class PointOperator {
      * @param divider Scalar by which to divide
      */
     public static void divide(Double[] vector, Double divider) {
-        for (int i = 0; i < vector.length; i++) {
-            vector[i] /= divider;
-        }
+        multiply(vector, (1/divider));
     }
 
     /** TODO
@@ -55,7 +53,9 @@ public final class PointOperator {
      * @param multiplier Scalar by which to multiply
      */
     public static void multiply(Double[] vector, Double multiplier) {
-        divide(vector, (1/multiplier));
+        for (int i = 0; i < vector.length; i++) {
+            vector[i] *= multiplier;
+        }
     }
 
     /** TODO
