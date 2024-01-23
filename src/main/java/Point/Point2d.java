@@ -84,7 +84,7 @@ public class Point2d extends AbstractPoint {
 
         return this;
     }
-
+ 
     /** TODO
      * Multiply the X and Y coordinates of a 2D point by a scalar
      * @param multiplier Scalar used to multiply
