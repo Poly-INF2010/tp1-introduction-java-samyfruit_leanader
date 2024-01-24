@@ -19,7 +19,7 @@ public class Ellipse extends BaseShape {
      * @param dimensions 2D point containing the width and height of the Ellipse
      */
     public Ellipse(Point2d dimensions) {
-
+        this(dimensions.X(), dimensions.Y());
     }
 
     /**

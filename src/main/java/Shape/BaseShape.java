@@ -2,6 +2,7 @@ package Shape;
 
 import Interface.Transform;
 import Point.Point2d;
+import org.apache.pdfbox.jbig2.err.IntegerMaxValueException;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -121,42 +122,65 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Maximum X coordinate of the shape
      */
     public Double getMaxX() {
-        return null;
+        double maxX = -Double.MAX_VALUE;
+
+        for (Point2d point : coords) {
+            maxX = Math.max(maxX, point.X());
+        }
+
+        return maxX;
     }
 
     /** TODO
      * @return Maximum Y coordinate of the shape
      */
     public Double getMaxY() {
-        return null;
+        double maxY = -Double.MAX_VALUE;
+
+        for (Point2d point : coords) {
+            maxY = Math.max(maxY, point.Y());
+        }
+
+        return maxY;
     }
 
     /** TODO
      * @return 2D Point containing the maximum X and Y coordinates of the shape
      */
     public Point2d getMaxCoord() {
-        return null;
+        return new Point2d(getMaxX(), getMaxY());
     }
 
     /** TODO
      * @return Minimum X coordinate of the shape
      */
     public Double getMinX() {
-        return null;
+        double minX = Double.MAX_VALUE;
+
+        for (Point2d point : coords) {
+            minX = Math.min(minX, point.X());
+        }
+
+        return minX;
     }
 
     /** TODO
      * @return Minimum Y coordinate of the shape
      */
     public Double getMinY() {
-        return null;
-    }
+        double minY = Double.MAX_VALUE;
 
+        for (Point2d point : coords) {
+            minY = Math.min(minY, point.Y());
+        }
+
+        return minY;
+    }
     /** TODO
      * @return 2D point containing the minimum X and Y coordinate of the shape
      */
     public Point2d getMinCoord() {
-        return null;
+        return new Point2d(getMinX(), getMinY());
     }
 
     /** TODO
