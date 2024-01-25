@@ -17,7 +17,30 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        return null;
+        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
+
+        Double[] v1 = {-15.0, 0.0};
+        Double[] v2 = {15.0, 0.0};
+        Double[] v3 = {0.0, -8.0};
+
+        double angle = Math.toRadians(10);
+
+        for (Point2d pointDD : r1.getCoords()) {
+            pointDD.rotate(angle);
+            pointDD.translate(v1);
+        }
+        for (Point2d pointDD : r2.getCoords()) {
+            pointDD.rotate(-angle);
+            pointDD.translate(v2);
+        }
+
+        for (Point2d pointDD : r3.getCoords()) {
+            pointDD.translate(v3);
+        }
+
+        return r1.add(r2).add(r3);
     }
 
     /** TODO
@@ -25,7 +48,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        return null;
+        Rectangle rectangle = new Rectangle(stripeThickness, maxHeight);
+
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
     /** TODO
@@ -33,7 +58,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return null;
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
     /** TODO
@@ -41,7 +66,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return null;
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
     /** TODO
@@ -49,7 +74,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return null;
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
     /** TODO
@@ -57,7 +82,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return null;
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
     /** TODO
@@ -65,7 +90,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return null;
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
 
 }
