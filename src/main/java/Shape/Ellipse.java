@@ -36,7 +36,8 @@ public class Ellipse extends BaseShape {
      * @param coords Collection of 2D points
      */
     private Ellipse(Collection<Point2d> coords) {
-        addAll(coords);
+        // addAll(coords);
+        // cloneCoords(coords);
     }
 
     /** TODO
@@ -44,6 +45,6 @@ public class Ellipse extends BaseShape {
      */
     @Override
     public Ellipse clone() {
-        return null;
+        return new Ellipse(this.getCoords());
     }
 }
