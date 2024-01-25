@@ -11,6 +11,11 @@ public class Ellipse extends BaseShape {
      * @param heightDiameter Height of the Ellipse
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
+        for(Double i = -widthDiameter/2; i <=widthDiameter/2;  i += 0.5){
+            for(Double j = -heightDiameter/2; j <= heightDiameter/2; j += 0.5){
+
+            }
+        }
 
     }
 

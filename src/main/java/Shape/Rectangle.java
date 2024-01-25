@@ -12,6 +12,11 @@ public class Rectangle extends BaseShape {
      */
     public Rectangle(Double width, Double height) {
 
+        for(Double i = -width/2; i <=width/2;  i += 0.5){
+            for(Double j = -height/2; j <= height/2; j += 0.5){
+                add(new Point2d(i,j));
+            }
+        }
     }
 
     /** TODO
