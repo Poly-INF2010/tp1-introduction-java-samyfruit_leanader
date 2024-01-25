@@ -28,12 +28,10 @@ public final class LetterFactory {
         double angle = Math.toRadians(10);
 
         for (Point2d pointDD : r1.getCoords()) {
-            pointDD.rotate(angle);
-            pointDD.translate(v1);
+            pointDD.rotate(angle).translate(v1);
         }
         for (Point2d pointDD : r2.getCoords()) {
-            pointDD.rotate(-angle);
-            pointDD.translate(v2);
+            pointDD.rotate(-angle).translate(v2);
         }
 
         for (Point2d pointDD : r3.getCoords()) {
@@ -66,7 +64,27 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
+        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r2 = new Rectangle(stripeThickness, halfStripeThickness);
+        Rectangle r3 = new Rectangle(stripeThickness*2, halfStripeThickness);
+        Rectangle r4 = new Rectangle(stripeThickness*2, halfStripeThickness);
+
+        Double[] v1 = {-15.0, 0.0};
+        Double[] v2 = {15.0, 0.0};
+        Point2d p = new Point2d(15.0, 0.0);
+        Point2d p2 = new Point2d(15.0, 71.0);
+        Point2d p3 = new Point2d(15.0, -71.0);
+        //a simplifie avec clone
+
+        //r1.translate(r1.getCoords(), p.multiply(-8.0));
+
+        r2.translate(r2.getCoords(), p);
+        r3.translate(r3.getCoords(), p2);
+        r4.translate(r4.getCoords(), p3);
+
+
+        return ((r1.add(r2)).add(r3)).add(r4);
+
     }
 
     /** TODO
@@ -74,7 +92,21 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
+        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
+
+        Double[] v1 = {-15.0, 0.0};
+        Double[] v2 = {15.0, 0.0};
+
+        for (Point2d pointDD : r1.getCoords()) {
+            pointDD.translate(v1);
+        }
+        for (Point2d pointDD : r2.getCoords()) {
+            pointDD.translate(v2);
+        }
+
+        return r1.add(r2).add(r3);
     }
 
     /** TODO
@@ -82,7 +114,28 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
+        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r3 = new Rectangle(halfStripeThickness, maxHeight);
+
+        Double[] v1 = {-15.0, 0.0};
+        Double[] v2 = {15.0, 0.0};
+
+        double angle = Math.toRadians(-10);
+
+
+        for (Point2d pointDD : r1.getCoords()) {
+            pointDD.translate(v1);
+        }
+        for (Point2d pointDD : r2.getCoords()) {
+            pointDD.translate(v2);
+        }
+
+        for (Point2d pointDD : r3.getCoords()) {
+            pointDD.rotate(angle);
+        }
+
+        return r1.add(r2).add(r3);
     }
 
     /** TODO
@@ -92,5 +145,4 @@ public final class LetterFactory {
     public static BaseShape create_O() {
         return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
     }
-
 }
