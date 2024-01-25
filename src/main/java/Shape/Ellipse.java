@@ -12,8 +12,10 @@ public class Ellipse extends BaseShape {
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
         double a = widthDiameter/2; double b = heightDiameter/2;
-        for (double i = -a; i <= a;  i += 0.5){
-            for (double j = -b; j <= b; j += 0.5){
+        double increment = 0.5;
+
+        for (double i = -a; i <= a;  i += increment){
+            for (double j = -b; j <= b; j += increment){
                 if ((i * i) / (a * a) + (j * j) / (b * b) <= 1) {
                     add(new Point2d(i,j));
                 }
@@ -34,7 +36,7 @@ public class Ellipse extends BaseShape {
      * @param coords Collection of 2D points
      */
     private Ellipse(Collection<Point2d> coords) {
-
+        addAll(coords);
     }
 
     /** TODO
