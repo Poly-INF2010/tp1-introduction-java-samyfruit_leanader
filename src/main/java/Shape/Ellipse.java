@@ -36,8 +36,7 @@ public class Ellipse extends BaseShape {
      * @param coords Collection of 2D points
      */
     private Ellipse(Collection<Point2d> coords) {
-        // addAll(coords);
-        // cloneCoords(coords);
+        new BaseShape(coords);
     }
 
     /** TODO
