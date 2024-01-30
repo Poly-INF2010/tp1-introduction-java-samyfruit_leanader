@@ -39,6 +39,6 @@ public class Rectangle extends BaseShape {
      */
     @Override
     public Rectangle clone() {
-        return new Rectangle(this.getCoords());
+        return new Rectangle(getCoords());
     }
 }

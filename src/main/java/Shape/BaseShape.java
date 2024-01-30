@@ -47,8 +47,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape add(BaseShape shape) {
-        addAll(shape.cloneCoords());
-        return this;
+        return addAll(shape.cloneCoords());
     }
 
     /** TODO
@@ -77,7 +76,7 @@ public class BaseShape extends Transform implements Cloneable {
      * @return Updated BaseShape
      */
     public BaseShape remove(BaseShape shape) {
-        return this.removeAll(shape.coords);
+        return removeAll(shape.coords);
     }
 
     /** TODO
@@ -97,8 +96,7 @@ public class BaseShape extends Transform implements Cloneable {
      * */
     public BaseShape replaceAll(Collection<Point2d> newCoords) {
         coords.clear();
-        addAll(newCoords);
-        return this;
+        return addAll(newCoords);
     }
 
     /** TODO

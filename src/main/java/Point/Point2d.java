@@ -74,8 +74,7 @@ public class Point2d extends AbstractPoint {
                 { Math.sin(angle), Math.cos(angle) }
         };
 
-        PointOperator.rotate(vector, rotationMatrix);
-        return this;
+        return rotate(rotationMatrix);
     }
 
     /** TODO
