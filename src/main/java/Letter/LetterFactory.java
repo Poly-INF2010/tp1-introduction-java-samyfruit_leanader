@@ -65,7 +65,11 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
+        BaseShape OCreated = create_O();
+        Rectangle rectangle = new Rectangle(halfMaxWidth, halfMaxHeight);
+        Point2d p1 = new Point2d(stripeThickness*1.3, 0.0);
+        rectangle.translate(rectangle.getCoords(), p1);
+        return create_O().remove(rectangle);
     }
 
     /** TODO
@@ -152,6 +156,6 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, halfMaxHeight));
+        return new Ellipse(maxWidth, maxHeight).remove(new Ellipse(halfMaxWidth, maxHeight/1.5));
     }
 }
