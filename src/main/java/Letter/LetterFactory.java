@@ -11,6 +11,13 @@ public final class LetterFactory {
     final static Double stripeThickness = maxHeight / 8;
     final static Double halfStripeThickness = stripeThickness / 2;
 
+    final static double xCoords = 15.0;
+    final static double xCoordsNegative = -15.0;
+    final static Double[] vector1 = {-15.0, 0.0};
+
+    final static  Double[] vector2 = {15.0, 0.0};
+    final static double angle = Math.toRadians(10);
+
 
     /** TODO
      * Create the letter A graphically
@@ -21,21 +28,20 @@ public final class LetterFactory {
         Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
-        Double[] v1 = {-15.0, 0.0};
-        Double[] v2 = {15.0, 0.0};
-        Double[] v3 = {0.0, -8.0};
 
-        double angle = Math.toRadians(10);
+        Double[] vector3 = {0.0, -8.0};
+
+        //double angle1 = Math.toRadians(10);
 
         for (Point2d pointDD : r1.getCoords()) {
-            pointDD.rotate(angle).translate(v1);
+            pointDD.rotate(angle).translate(vector1);
         }
         for (Point2d pointDD : r2.getCoords()) {
-            pointDD.rotate(-angle).translate(v2);
+            pointDD.rotate(-angle).translate(vector2);
         }
 
         for (Point2d pointDD : r3.getCoords()) {
-            pointDD.translate(v3);
+            pointDD.translate(vector3);
         }
 
         return r1.add(r2).add(r3);
@@ -65,7 +71,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        BaseShape OCreated = create_O();
+
         Rectangle rectangle = new Rectangle(halfMaxWidth, halfMaxHeight);
         Point2d p1 = new Point2d(stripeThickness*1.3, 0.0);
         rectangle.translate(rectangle.getCoords(), p1);
@@ -82,14 +88,9 @@ public final class LetterFactory {
         Rectangle r3 = new Rectangle(stripeThickness*2, halfStripeThickness);
         Rectangle r4 = new Rectangle(stripeThickness*2, halfStripeThickness);
 
-        Double[] v1 = {-15.0, 0.0};
-        Double[] v2 = {15.0, 0.0};
         Point2d p = new Point2d(15.0, 0.0);
         Point2d p2 = new Point2d(15.0, 71.0);
         Point2d p3 = new Point2d(15.0, -71.0);
-        //a simplifie avec clone
-
-        //r1.translate(r1.getCoords(), p.multiply(-8.0));
 
         r2.translate(r2.getCoords(), p);
         r3.translate(r3.getCoords(), p2);
@@ -109,14 +110,13 @@ public final class LetterFactory {
         Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
-        Double[] v1 = {-15.0, 0.0};
-        Double[] v2 = {15.0, 0.0};
+
 
         for (Point2d pointDD : r1.getCoords()) {
-            pointDD.translate(v1);
+            pointDD.translate(vector1);
         }
         for (Point2d pointDD : r2.getCoords()) {
-            pointDD.translate(v2);
+            pointDD.translate(vector2);
         }
 
         return r1.add(r2).add(r3);
@@ -131,21 +131,15 @@ public final class LetterFactory {
         Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
         Rectangle r3 = new Rectangle(halfStripeThickness, maxHeight);
 
-        Double[] v1 = {-15.0, 0.0};
-        Double[] v2 = {15.0, 0.0};
-
-        double angle = Math.toRadians(-10);
-
-
         for (Point2d pointDD : r1.getCoords()) {
-            pointDD.translate(v1);
+            pointDD.translate(vector1);
         }
         for (Point2d pointDD : r2.getCoords()) {
-            pointDD.translate(v2);
+            pointDD.translate(vector2);
         }
 
         for (Point2d pointDD : r3.getCoords()) {
-            pointDD.rotate(angle);
+            pointDD.rotate(-angle);
         }
 
         return r1.add(r2).add(r3);
