@@ -11,8 +11,8 @@ public final class LetterFactory {
     final static Double stripeThickness = maxHeight / 8;
     final static Double halfStripeThickness = stripeThickness / 2;
 
-    final static double xCoords = 15.0;
-    final static double xCoordsNegative = -15.0;
+    final static double xCoord = 15.0;
+    final static double yCoord = 71.0;
     final static Double[] vector1 = {-15.0, 0.0};
 
     final static  Double[] vector2 = {15.0, 0.0};
@@ -33,9 +33,8 @@ public final class LetterFactory {
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
 
-        Double[] vector3 = {0.0, -8.0};
+        Double[] vector3 = {0.0, -xCoord/2};
 
-        //double angle1 = Math.toRadians(10);
 
         for (Point2d pointDD : r1.getCoords()) {
             pointDD.rotate(angle).translate(vector1);
@@ -92,9 +91,9 @@ public final class LetterFactory {
         Rectangle r3 = new Rectangle(stripeThickness*2, halfStripeThickness);
         Rectangle r4 = new Rectangle(stripeThickness*2, halfStripeThickness);
 
-        Point2d p = new Point2d(15.0, 0.0);
-        Point2d p2 = new Point2d(15.0, 71.0);
-        Point2d p3 = new Point2d(15.0, -71.0);
+        Point2d p = new Point2d(xCoord, 0.0);
+        Point2d p2 = new Point2d(xCoord, yCoord);
+        Point2d p3 = new Point2d(xCoord, -yCoord);
 
         r2.translate(r2.getCoords(), p);
         r3.translate(r3.getCoords(), p2);
