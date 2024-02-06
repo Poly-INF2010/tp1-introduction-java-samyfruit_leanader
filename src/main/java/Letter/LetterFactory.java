@@ -18,14 +18,18 @@ public final class LetterFactory {
     final static  Double[] vector2 = {15.0, 0.0};
     final static double angle = Math.toRadians(10);
 
+    public static Rectangle createRectangle() {
+        return new Rectangle(halfStripeThickness, maxHeight);
+    }
+
 
     /** TODO
      * Create the letter A graphically
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A()  {
-        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
-        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r1 = createRectangle();
+        Rectangle r2 = createRectangle();
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
 
@@ -83,7 +87,7 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r1 = createRectangle();
         Rectangle r2 = new Rectangle(stripeThickness, halfStripeThickness);
         Rectangle r3 = new Rectangle(stripeThickness*2, halfStripeThickness);
         Rectangle r4 = new Rectangle(stripeThickness*2, halfStripeThickness);
@@ -106,8 +110,8 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
-        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r1 = createRectangle();
+        Rectangle r2 = createRectangle();
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
 
@@ -127,9 +131,9 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        Rectangle r1 = new Rectangle(halfStripeThickness, maxHeight);
-        Rectangle r2 = new Rectangle(halfStripeThickness, maxHeight);
-        Rectangle r3 = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle r1 = createRectangle();
+        Rectangle r2 = createRectangle();
+        Rectangle r3 = createRectangle();
 
         for (Point2d pointDD : r1.getCoords()) {
             pointDD.translate(vector1);
