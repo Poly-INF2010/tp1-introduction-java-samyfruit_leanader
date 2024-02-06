@@ -30,6 +30,12 @@ public final class LetterFactory {
         }
     }
 
+    public static void rotatePointsRectangle(Rectangle r,  Double angle) {
+        for (Point2d pointDD : r.getCoords()) {
+            pointDD.rotate(angle);
+        }
+    }
+
 
     /** TODO
      * Create the letter A graphically
@@ -43,13 +49,11 @@ public final class LetterFactory {
 
         Double[] vector3 = {coordZero, -xCoord/2};
 
+        rotatePointsRectangle(r1, angle);
+        translatePointsRectangle(r1, vector1);
 
-        for (Point2d pointDD : r1.getCoords()) {
-            pointDD.rotate(angle).translate(vector1);
-        }
-        for (Point2d pointDD : r2.getCoords()) {
-            pointDD.rotate(-angle).translate(vector2);
-        }
+        rotatePointsRectangle(r2, -angle);
+        translatePointsRectangle(r2, vector2);
 
         translatePointsRectangle(r3, vector3);
 
@@ -140,9 +144,8 @@ public final class LetterFactory {
         
         translatePointsRectangle(r2, vector2);
 
-        for (Point2d pointDD : r3.getCoords()) {
-            pointDD.rotate(-angle);
-        }
+        rotatePointsRectangle(r3, -angle);
+
 
         return r1.add(r2).add(r3);
     }
