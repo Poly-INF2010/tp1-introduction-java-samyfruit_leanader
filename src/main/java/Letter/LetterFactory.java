@@ -17,6 +17,7 @@ public final class LetterFactory {
     final static double coordZero = 0.0;
     final static Double[] vector1 = {-15.0, 0.0};
 
+
     final static  Double[] vector2 = {15.0, 0.0};
     final static double angle = Math.toRadians(10);
 
@@ -124,9 +125,8 @@ public final class LetterFactory {
         Rectangle r3 = new Rectangle(stripeThickness, halfStripeThickness);
 
 
-        translatePointsRectangle(r1, vector1);
-       
-        translatePointsRectangle(r2, vector2);
+        r1.translate(r1.getCoords(), new Point2d(vector1));
+        r2.translate(r2.getCoords(), new Point2d(vector2));
 
         return r1.add(r2).add(r3);
     }
@@ -140,11 +140,12 @@ public final class LetterFactory {
         Rectangle r2 = createRectangle();
         Rectangle r3 = createRectangle();
 
-        translatePointsRectangle(r1, vector1);
-        
-        translatePointsRectangle(r2, vector2);
 
-        rotatePointsRectangle(r3, -angle);
+        r1.translate(r1.getCoords(), new Point2d(vector1));
+        r2.translate(r2.getCoords(), new Point2d(vector2));
+        r3.rotate(r3.getCoords(), -angle);
+
+
 
 
         return r1.add(r2).add(r3);
